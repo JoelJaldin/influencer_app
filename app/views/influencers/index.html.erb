@@ -1,0 +1,34 @@
+<h1>Listado de Influencers</h1>
+
+<%= form_with model: Influencer.new, local: true, data: { controller: "name-validation" } do |form| %>
+  <%= form.label :name, "Nombre" %>
+  <%= form.text_field :name, data: { name_validation_target: "input", action: "input->name-validation#checkName" } %>
+  <div data-name-validation-target="message"></div>
+
+  <%= form.label :platform, "Plataforma" %>
+  <%= form.text_field :platform %>
+
+  <%= form.label :followers, "Seguidores" %>
+  <%= form.number_field :followers %>
+
+  <%= form.label :profile_url, "URL del perfil" %>
+  <%= form.text_field :profile_url %>
+
+  <%= form.submit "Crear Influencer" %>
+<% end %>
+
+<div data-controller="sortable">
+  <button data-action="click->sortable#sortBy" data-criteria="name">Ordenar por Nombre</button>
+  <button data-action="click->sortable#sortBy" data-criteria="followers">Ordenar por Seguidores</button>
+
+  <%= turbo_frame_tag "influencers" do %>
+    <ul data-sortable-target="list">
+      <% @influencers.each do |influencer| %>
+        <li>
+          <%= influencer.name %> - <%= influencer.platform %> (<%= influencer.followers %> seguidores)
+          <a href="<%= influencer.profile_url %>" target="_blank">Ver perfil</a>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
