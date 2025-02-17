@@ -1,24 +1,23 @@
-// app/javascript/controllers/modal_controller.js
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["modal"]
+  static targets = ["modal", "form"]
 
   connect() {
+    console.log("Modal controller connected") // Depuración
     this.modalTarget.classList.add("hidden")
   }
 
   open() {
+    console.log("Opening modal") // Depuración
     document.body.classList.add("blur-background")
     this.modalTarget.classList.remove("hidden")
   }
 
   close() {
+    console.log("Closing modal") // Depuración
     document.body.classList.remove("blur-background")
     this.modalTarget.classList.add("hidden")
-  }
-    // Puedes agregar una función para cerrar el modal tras una acción de éxito, por ejemplo:
-  closeOnSuccess() {
-    this.close()
+    this.formTarget.reset() // Reinicia el formulario
   }
 }
