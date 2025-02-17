@@ -1,24 +1,9 @@
-# README
+# README Rails 7.1.5.1 // ruby 3.2.0 // tailwindcss@4.0.6
+Pasos para ver proyecto:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1 - Clonar el repositorio
+2 - bundle install
+3 - rails db:create
+4 - rails db:initialize_mock_influencers (rake task para mock)
+5 - rails assets:precompile
+6 - rails s
