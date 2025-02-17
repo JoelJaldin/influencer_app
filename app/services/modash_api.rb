@@ -14,53 +14,33 @@ class ModashApi
     # Datos de prueba simulando la respuesta de la API
     [
       {
-        "name" => "Influencer 1",
+        "name" => "Lionel Messi",
         "platform" => "Instagram",
-        "followers" => 10000,
-        "profile_url" => "https://instagram.com/influencer1"
+        "followers" => 20000,
+        "profile_url" => "https://instagram.com/influencer1",
+        "image" => "https://upload.wikimedia.org/wikipedia/commons/b/b4/Lionel-Messi-Argentina-2022-FIFA-World-Cup_%28cropped%29.jpg"
       },
       {
-        "name" => "Influencer 2",
+        "name" => "Cristiano Ronaldo",
         "platform" => "Instagram",
         "followers" => 15000,
-        "profile_url" => "https://instagram.com/influencer2"
+        "profile_url" => "https://instagram.com/influencer2",
+        "image" => "https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg"
       },
       {
-        "name" => "Influencer 3",
+        "name" => "Mr. Beast",
         "platform" => "TikTok",
         "followers" => 200000,
-        "profile_url" => "https://tiktok.com/@influencer3"
+        "profile_url" => "https://tiktok.com/@influencer3",
+        "image" => "https://upload.wikimedia.org/wikipedia/commons/c/ce/MrBeast_2023_%28cropped%29.jpg"
       },
       {
-        "name" => "Influencer 4",
+        "name" => "Taylor Swift",
         "platform" => "Twitter",
         "followers" => 5000,
-        "profile_url" => "https://twitter.com/influencer4"
+        "profile_url" => "https://twitter.com/influencer4",
+        "image" => "https://upload.wikimedia.org/wikipedia/commons/a/a0/Taylor_Swift_at_the_2024_Golden_Globes_%281%29.png"
       },
-      {
-        "name" => "Influencer 5",
-        "platform" => "YouTube",
-        "followers" => 250000,
-        "profile_url" => "https://youtube.com/influencer5"
-      },
-      {
-        "name" => "Influencer 6",
-        "platform" => "Facebook",
-        "followers" => 30000,
-        "profile_url" => "https://facebook.com/influencer6"
-      },
-      {
-        "name" => "Influencer 7",
-        "platform" => "Instagram",
-        "followers" => 180000,
-        "profile_url" => "https://instagram.com/influencer7"
-      },
-      {
-        "name" => "Influencer 8",
-        "platform" => "LinkedIn",
-        "followers" => 40000,
-        "profile_url" => "https://linkedin.com/in/influencer8"
-      }
     ]
   end
 end
