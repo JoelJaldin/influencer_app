@@ -1,34 +1,23 @@
-<h1>Listado de Influencers</h1>
+<div data-controller="modal" class="max-w-6xl mx-auto mt-10 bg-gradient-to-br from-purple-50 to-blue-50 p-8 rounded-xl shadow-2xl flex flex-col space-y-8">
+  <h1 class="text-4xl font-bold text-gray-900 font-poppins text-center">Listado de Influencers</h1>
 
-<%= form_with model: Influencer.new, local: true, data: { controller: "name-validation" } do |form| %>
-  <%= form.label :name, "Nombre" %>
-  <%= form.text_field :name, data: { name_validation_target: "input", action: "input->name-validation#checkName" } %>
-  <div data-name-validation-target="message"></div>
+  <%= render "influencers/partials/search" %>
 
-  <%= form.label :platform, "Plataforma" %>
-  <%= form.text_field :platform %>
+  <!-- Lista de influencers -->
+  <ul id="influencers-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+    <%= render partial: "influencers/partials/influencer", collection: @influencers, as: :influencer %>
+  </ul>
 
-  <%= form.label :followers, "Seguidores" %>
-  <%= form.number_field :followers %>
+  <!-- Botón para abrir el modal -->
+  <div class="text-center">
+    <button data-action="click->modal#open" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-xl hover:from-blue-600 hover:to-purple-700 transition duration-300 flex items-center justify-center space-x-3 font-poppins">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+      </svg>
+      <span class="text-lg">Agregar Influencer</span>
+    </button>
+  </div>
 
-  <%= form.label :profile_url, "URL del perfil" %>
-  <%= form.text_field :profile_url %>
-
-  <%= form.submit "Crear Influencer" %>
-<% end %>
-
-<div data-controller="sortable">
-  <button data-action="click->sortable#sortBy" data-criteria="name">Ordenar por Nombre</button>
-  <button data-action="click->sortable#sortBy" data-criteria="followers">Ordenar por Seguidores</button>
-
-  <%= turbo_frame_tag "influencers" do %>
-    <ul data-sortable-target="list">
-      <% @influencers.each do |influencer| %>
-        <li>
-          <%= influencer.name %> - <%= influencer.platform %> (<%= influencer.followers %> seguidores)
-          <a href="<%= influencer.profile_url %>" target="_blank">Ver perfil</a>
-        </li>
-      <% end %>
-    </ul>
-  <% end %>
+  <!-- Modal para agregar influencer -->
+  <%= render "influencers/partials/modal" %>
 </div>

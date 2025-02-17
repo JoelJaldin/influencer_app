@@ -1,6 +1,17 @@
+<%# create_turbo_stream.rb %>
 <%= turbo_stream.append "influencers" do %>
-  <li>
-    <%= @influencer.name %> - <%= @influencer.platform %> (<%= @influencer.followers %> seguidores)
-    <a href="<%= @influencer.profile_url %>" target="_blank">Ver perfil</a>
+  <li class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+    <div class="p-6 flex flex-col items-center text-center space-y-4 h-full">
+      <h2 class="text-xl font-semibold text-gray-800 font-inter flex-grow"><%= @influencer.name %></h2>
+      <p class="text-sm text-gray-600 font-inter flex-grow">
+        <%= @influencer.platform %> - <%= @influencer.followers %> seguidores
+      </p>
+      <a href="<%= @influencer.profile_url %>" target="_blank" class="w-full flex justify-center items-center space-x-2 px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition duration-300 font-inter">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
+        <span>Ver perfil</span>
+      </a>
+    </div>
   </li>
 <% end %>
